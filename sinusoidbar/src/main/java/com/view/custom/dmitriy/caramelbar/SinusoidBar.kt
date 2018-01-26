@@ -42,9 +42,7 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
         canvas!!.drawPath(sinusoidBuilder(), paintInitialize())
     }
 
-
-
-    /*Override methods*/
+                                        /*Override methods*/
 
     override fun run() {
         sinusoidCoordinateY += 0.08f
@@ -56,6 +54,6 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
 
     override fun paintInitialize(): Paint = paintPresenter.paintInitialize()
 
-    override fun sinusoidBuilder(): Path = sinusoidBuilderPresenter.sinusoidEquationBuilder(sinusoidPath, width/2, height/2, sinusoidCoordinateY, 6f)
-    
+    override fun sinusoidBuilder(): Path = sinusoidBuilderPresenter.sinusoidEquationBuilder( width/2, height/2, sinusoidCoordinateY, 6f)
+
 }
