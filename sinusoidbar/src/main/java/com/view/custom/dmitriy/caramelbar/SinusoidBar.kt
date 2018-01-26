@@ -20,7 +20,7 @@ import kotlin.math.sin
 /**
  * Created by Dmitriy on 22.01.2018.
  */
-class CaramelBar(context: Context, attrs: AttributeSet?) : View(context, attrs), Runnable, PaintView, SinusoidBuilderView{
+class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs), Runnable, PaintView, SinusoidBuilderView{
 
     var sinusoidBuilderPresenter = SinusoidBuilderPresenter(context, attrs)
 
