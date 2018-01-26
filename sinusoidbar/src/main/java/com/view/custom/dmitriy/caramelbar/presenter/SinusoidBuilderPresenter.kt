@@ -11,17 +11,27 @@ import kotlin.math.sin
 /**
  * Created by Dmitriy on 24.01.2018.
  */
-class SinusoidBuilderPresenter(context: Context?, attrs: AttributeSet?) : View(context, attrs), SinusoidBuilderView {
+class SinusoidBuilderPresenter : SinusoidBuilderView {
+    override fun sinusoidBuilder(): Path = sinusoidEquationBuilder(emptyPath, emptyHalfX, emptyHalfY, emptyRunnableCoordinateY, emptyObjextSize)
+
 
     companion object {
         const val density = 6
+        var sinusoidPath = Path()
+
+        var emptyPath = Path()
+        val emptyHalfX: Int = 0
+        val emptyHalfY: Int = 0
+        val emptyRunnableCoordinateY: Float = 0f
+        val emptyObjextSize: Float = 0f
     }
 
-    override fun sinusoidBuilder(path: Path, runnableCoordinateY: Float, objectSize: Float): Path {
-        for (dx in 0..width/2 step density){
-            path.addCircle(dx.toFloat(), height/2 + ( dx * sin(runnableCoordinateY) ) * sin(dx.toFloat() + cos(runnableCoordinateY)*2), 6f, Path.Direction.CW)
-            path.addCircle(dx.toFloat() + width/2 - density *2, height/2 + ( (dx - width/2) * sin( -runnableCoordinateY ) ) * sin((dx - width/2) + cos(runnableCoordinateY)*2), objectSize, Path.Direction.CW)
+    fun sinusoidEquationBuilder(path: Path, halfX: Int, halfY: Int, runnableCoordinateY: Float, objectSize: Float):  Path{
+        for (dx in 0..halfX step density){
+            sinusoidPath.addCircle(dx.toFloat(), halfY + ( dx * sin(runnableCoordinateY) ) * sin(dx.toFloat() + cos(runnableCoordinateY)*2), objectSize, Path.Direction.CW)
+            sinusoidPath.addCircle(dx.toFloat() + halfX- density *2, halfY + ( (dx - halfX) * sin( -runnableCoordinateY ) ) * sin((dx - halfX) + cos(runnableCoordinateY)*2), objectSize, Path.Direction.CW)
         }
-        return path
+        return sinusoidPath
     }
+
 }

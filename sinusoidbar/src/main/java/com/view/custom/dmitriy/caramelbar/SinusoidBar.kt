@@ -22,16 +22,16 @@ import kotlin.math.sin
  */
 class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs), Runnable, PaintView, SinusoidBuilderView{
 
-    var sinusoidBuilderPresenter = SinusoidBuilderPresenter(context, attrs)
-
     init {
         post(this)
     }
 
     companion object {
-        var lineCoordinateY = 0f
-        var path = Path()
-        var paintPresenter = PaintPresenter()
+        var sinusoidCoordinateY = 0f
+        var sinusoidPath = Path()
+
+        val paintPresenter = PaintPresenter()
+        val sinusoidBuilderPresenter = SinusoidBuilderPresenter()
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -39,7 +39,7 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        canvas!!.drawPath(pathCreator(), paintInitialize())
+        canvas!!.drawPath(sinusoidBuilder(), paintInitialize())
     }
 
 
@@ -47,26 +47,15 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
     /*Override methods*/
 
     override fun run() {
-        lineCoordinateY += 0.08f
+        sinusoidCoordinateY += 0.08f
 
         invalidate()
-        path.reset()
+        sinusoidBuilder().reset()
         postDelayed( this, 20)
     }
 
     override fun paintInitialize(): Paint = paintPresenter.paintInitialize()
 
-    override fun sinusoidBuilder(path: Path, runnableCoordinateY: Float, objectSize: Float): Path {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-                                    /*Private members*/
-
-    private fun pathCreator(): Path {
-        for (dx in 0..width/2 step density){
-            path.addCircle(dx.toFloat(), height/2 + ( dx * sin(lineCoordinateY) ) * sin(dx.toFloat() + cos(lineCoordinateY)*2), 6f, Path.Direction.CW)
-            path.addCircle(dx.toFloat()+width/2 - density *2, height/2 + ( (dx - width/2) * sin(-lineCoordinateY) ) * sin((dx - width/2) + cos(lineCoordinateY)*2), 6f, Path.Direction.CW)
-        }
-        return path
-    }
+    override fun sinusoidBuilder(): Path = sinusoidBuilderPresenter.sinusoidEquationBuilder(sinusoidPath, width/2, height/2, sinusoidCoordinateY, 6f)
+    
 }
