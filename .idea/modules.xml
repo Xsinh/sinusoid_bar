@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Dmitriy\Desktop\CustomProgressBar\custom_progress_bar\sinusoidbar\caramelbar.iml" filepath="C:\Users\Dmitriy\Desktop\CustomProgressBar\custom_progress_bar\sinusoidbar\caramelbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/custom_progress_bar.iml" filepath="$PROJECT_DIR$/custom_progress_bar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sinusoidbar/caramelbar.iml" filepath="$PROJECT_DIR$/sinusoidbar/caramelbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sinusoidbar/sinusoidbar.iml" filepath="$PROJECT_DIR$/sinusoidbar/sinusoidbar.iml" />
     </modules>
   </component>
 </project>
