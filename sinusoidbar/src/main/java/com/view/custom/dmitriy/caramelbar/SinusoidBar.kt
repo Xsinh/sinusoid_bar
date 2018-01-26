@@ -28,7 +28,7 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
 
     companion object {
         var sinusoidCoordinateY = 0f
-        var sinusoidPath = Path()
+        const val objectSize = 6f
 
         val paintPresenter = PaintPresenter()
         val sinusoidBuilderPresenter = SinusoidBuilderPresenter()
@@ -38,22 +38,19 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-
         canvas!!.drawPath(sinusoidBuilder(), paintInitialize())
     }
-
                                         /*Override methods*/
-
-    override fun run() {
-        sinusoidCoordinateY += 0.08f
-
-        invalidate()
-        sinusoidBuilder().reset()
-        postDelayed( this, 20)
-    }
 
     override fun paintInitialize(): Paint = paintPresenter.paintInitialize()
 
-    override fun sinusoidBuilder(): Path = sinusoidBuilderPresenter.sinusoidEquationBuilder( width/2, height/2, sinusoidCoordinateY, 6f)
+    override fun sinusoidBuilder(): Path = sinusoidBuilderPresenter.sinusoidEquationBuilder( width/2, height/2, sinusoidCoordinateY, objectSize)
 
+    override fun run() {
+        sinusoidCoordinateY += 0.08f
+        invalidate()
+        sinusoidBuilder().reset()
+
+        postDelayed( this, 20)
+    }
 }
