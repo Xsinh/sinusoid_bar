@@ -25,7 +25,10 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
 
     companion object {
         var sinusoidCoordinateY = 0f
+
         const val objectSize = 6f
+        const val speed = 0.08f
+        const val delay = 20L
 
         val paintPresenter = PaintPresenter()
         val sinusoidBuilderPresenter = SinusoidBuilderPresenter()
@@ -43,10 +46,10 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
     override fun sinusoidBuilder(): Path = sinusoidBuilderPresenter.sinusoidStartBuild( width/2, height/2, sinusoidCoordinateY, objectSize)
 
     override fun run() {
-        sinusoidCoordinateY += 0.08f
+        sinusoidCoordinateY += speed
         invalidate()
         sinusoidBuilder().reset()
 
-        postDelayed( this, 20)
+        postDelayed( this, delay)
     }
 }

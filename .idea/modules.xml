@@ -4,8 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\Dmitriy\Desktop\CustomProgressBar\custom_progress_bar\sinusoidbar\caramelbar.iml" filepath="C:\Users\Dmitriy\Desktop\CustomProgressBar\custom_progress_bar\sinusoidbar\caramelbar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/custom_progress_bar.iml" filepath="$PROJECT_DIR$/custom_progress_bar.iml" />
+      <module fileurl="file://C:\Users\Implozia\Desktop\Projects\CastomProgressBar\sinusoid_bar\custom_progress_bar.iml" filepath="C:\Users\Implozia\Desktop\Projects\CastomProgressBar\sinusoid_bar\custom_progress_bar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sinusoid_bar.iml" filepath="$PROJECT_DIR$/sinusoid_bar.iml" />
       <module fileurl="file://$PROJECT_DIR$/sinusoidbar/sinusoidbar.iml" filepath="$PROJECT_DIR$/sinusoidbar/sinusoidbar.iml" />
+      <module fileurl="file://C:\Users\Implozia\Desktop\Projects\CastomProgressBar\sinusoid_bar\sinusoidbar\sinusoidbar.iml" filepath="C:\Users\Implozia\Desktop\Projects\CastomProgressBar\sinusoid_bar\sinusoidbar\sinusoidbar.iml" />
     </modules>
   </component>
 </project>
