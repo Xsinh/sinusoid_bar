@@ -1,12 +1,14 @@
-package com.view.custom.dmitriy.caramelbar
+package com.view.custom.dmitriy.caramelbar.model
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
+import android.widget.ProgressBar
 import com.view.custom.dmitriy.caramelbar.presenter.PaintPresenter
 import com.view.custom.dmitriy.caramelbar.presenter.SinusoidBuilderPresenter
 
@@ -27,9 +29,8 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
         var sinusoidCoordinateY = 0f
 
         const val objectSize = 6f
-        const val speed = 0.08f
+        const val speed = .08f
         const val delay = 20L
-
         val paintPresenter = PaintPresenter()
         val sinusoidBuilderPresenter = SinusoidBuilderPresenter()
     }
@@ -38,6 +39,7 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         canvas!!.drawPath(sinusoidBuilder(), paintInitialize())
+
     }
                                         /*Override methods*/
 
@@ -52,4 +54,11 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
 
         postDelayed( this, delay)
     }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+
+
+    }
+
 }
