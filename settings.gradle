@@ -1,1 +1,1 @@
-include ':app', ':caramelbar'
+include ':app', ':sinusoidbar'

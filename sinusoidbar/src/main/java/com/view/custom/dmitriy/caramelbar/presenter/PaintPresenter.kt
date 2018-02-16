@@ -18,9 +18,7 @@ class PaintPresenter : PaintView {
     }
 
     override fun paintInitialize(): Paint {
-
         paintCaramelBar = Paint(Paint.ANTI_ALIAS_FLAG)
-        paintCaramelBar.color = Color.CYAN
         paintCaramelBar.strokeWidth = canvasObjectsSize
         paintCaramelBar.shader = barShader
         //paintCaramelBar.setShadowLayer(8f,0f,36f,Color.DKGRAY)
