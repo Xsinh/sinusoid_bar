@@ -21,8 +21,12 @@ import com.view.custom.dmitriy.caramelbar.view.SinusoidBuilderView
  */
 class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs), Runnable, PaintView, SinusoidBuilderView{
 
+    private val appContext = context
+    private val attributeSet = attrs
+
     init {
         post(this)
+        paintPresenter = PaintPresenter(context, attributeSet)
     }
 
     companion object {
@@ -31,7 +35,10 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
         const val objectSize = 6f
         const val speed = .08f
         const val delay = 20L
-        val paintPresenter = PaintPresenter()
+
+        @SuppressLint("StaticFieldLeak")
+        lateinit var paintPresenter: PaintPresenter
+
         val sinusoidBuilderPresenter = SinusoidBuilderPresenter()
     }
 
@@ -39,7 +46,6 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         canvas!!.drawPath(sinusoidBuilder(), paintInitialize())
-
     }
 
                                         /*Override methods*/
