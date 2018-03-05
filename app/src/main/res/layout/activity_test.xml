@@ -7,8 +7,9 @@
     android:background="#505050"
     tools:context="com.view.custom.dmitriy.customprogressbar.TestActivity">
 
-    <com.view.custom.dmitriy.caramelbar.CaramelBar
+    <com.view.custom.dmitriy.caramelbar.model.SinusoidBar
         android:id="@+id/caramelBar"
+        app:acid="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

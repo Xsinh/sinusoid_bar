@@ -30,7 +30,7 @@ class CaramelBar(context: Context, attrs: AttributeSet?) : View(context, attrs),
 
     companion object {
         var lineCoordinateY = 0f
-        var path = Path()
+        val path = Path()
         var paintPresenter = PaintPresenter()
     }
 
@@ -42,15 +42,12 @@ class CaramelBar(context: Context, attrs: AttributeSet?) : View(context, attrs),
         canvas!!.drawPath(pathCreator(), paintInitialize())
     }
 
-
-
-    /*Override methods*/
+                                            /*Override methods*/
 
     override fun run() {
         lineCoordinateY += 0.08f
-
-        invalidate()
         path.reset()
+        invalidate()
         postDelayed( this, 20)
     }
 
@@ -60,7 +57,7 @@ class CaramelBar(context: Context, attrs: AttributeSet?) : View(context, attrs),
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-                                    /*Private members*/
+                                            /*Private members*/
 
     private fun pathCreator(): Path {
         for (dx in 0..width/2 step density){

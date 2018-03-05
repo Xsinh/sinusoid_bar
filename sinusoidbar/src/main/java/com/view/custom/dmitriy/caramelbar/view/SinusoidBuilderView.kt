@@ -7,5 +7,8 @@ import android.graphics.Path
  */
 interface SinusoidBuilderView {
 
-    fun sinusoidBuilder(path: Path, runnableCoordinateY: Float, objectSize: Float): Path
+    /**
+     * Метод для отрисовки синусоиды
+     */
+    fun sinusoidBuilder(): Path
 }
