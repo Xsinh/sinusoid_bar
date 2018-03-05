@@ -22,6 +22,10 @@ class PaintPresenter(context: Context, attributeSet: AttributeSet?) : PaintView 
         lateinit var typedArray: TypedArray
 
         const val canvasObjectsSize = 8f
+        const val shadowLayerRadius = 12f
+        const val shadowLayerDx = 0f
+        const val shadowLayerdy = 20f
+        const val shadowLayerColor = Color.DKGRAY
 
         var barShader = LinearGradient(0f, 0f, 100f, 20f, Color.CYAN, Color.GREEN, Shader.TileMode.MIRROR)
     }
@@ -31,19 +35,27 @@ class PaintPresenter(context: Context, attributeSet: AttributeSet?) : PaintView 
         paintCaramelBar.strokeWidth = canvasObjectsSize
         paintCaramelBar.shader = barShader
 
+        attributeAcid()
+
+        return paintCaramelBar
+    }
+
+    /**
+     * Если в xml добавить 'app:acid="true"',
+     * о получится интересный эффект :)
+     */
+    private fun attributeAcid() {
         typedArray = appContext.theme.obtainStyledAttributes(
                 attrs,
                 R.styleable.SinusoidBar,
-                0,0
+                0, 0
         )
         try {
-            if( typedArray.getBoolean(R.styleable.SinusoidBar_acid, false) ){
-                paintCaramelBar.setShadowLayer(8f,0f,36f,Color.DKGRAY)
+            if (typedArray.getBoolean(R.styleable.SinusoidBar_acid, true)) {
+                paintCaramelBar.setShadowLayer( shadowLayerRadius, shadowLayerDx, shadowLayerdy, Color.DKGRAY )
             }
-        }finally {
+        } finally {
             typedArray.recycle()
         }
-
-        return paintCaramelBar
     }
 }

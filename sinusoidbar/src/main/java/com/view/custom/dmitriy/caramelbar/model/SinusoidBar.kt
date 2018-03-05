@@ -26,7 +26,7 @@ class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs)
 
     init {
         post(this)
-        paintPresenter = PaintPresenter(context, attributeSet)
+        paintPresenter = PaintPresenter(appContext, attributeSet)
     }
 
     companion object {
