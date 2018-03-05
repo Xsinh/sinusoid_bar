@@ -58,7 +58,7 @@ class SinusoidBuilderPresenter : SinusoidBuilderView {
      * @param runnableCoordinateY дифференциал колебания, пересчет дифференциал необходимо выполнять в [Runnable]
      */
     private fun equationDampedOscillation(halfY: Int, dx: Int, halfX: Int, runnableCoordinateY: Float) =
-            halfY + amplitudeDumpedOscillation(dx, halfX, runnableCoordinateY) * sin((dx - halfX) + cos(runnableCoordinateY) * 2)
+            halfY + amplitudeDumpedOscillation(dx, halfX, runnableCoordinateY) / 2 * sin((dx - halfX) + cos(runnableCoordinateY) * 2)
 
             /**
              * Амплитуда вынужденного колебания
@@ -77,7 +77,7 @@ class SinusoidBuilderPresenter : SinusoidBuilderView {
      * @param runnableCoordinateY дифференциал колебания, пересчет дифференциал необходимо выполнять в [Runnable]
      */
     private fun equationForcedOscillation(halfY: Int, dx: Int, runnableCoordinateY: Float) =
-            halfY + amplitudeForcedOscillation(dx, runnableCoordinateY) * sin(dx.toFloat() + cos(runnableCoordinateY) * 2)
+            halfY + amplitudeForcedOscillation(dx, runnableCoordinateY) / 2 * sin(dx.toFloat() + cos(runnableCoordinateY) * 2)
 
             /**
              * Амплитуда затухающего колебания
