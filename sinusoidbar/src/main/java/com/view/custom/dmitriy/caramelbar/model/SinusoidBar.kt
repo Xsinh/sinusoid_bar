@@ -19,7 +19,7 @@ import com.view.custom.dmitriy.caramelbar.view.SinusoidBuilderView
 /**
  * Created by Dmitriy on 22.01.2018.
  */
-class SinusoidBar(context: Context, attrs: AttributeSet?) : View(context, attrs), Runnable, PaintView, SinusoidBuilderView{
+class SinusoidBar(context: Context, attrs: AttributeSet) : View(context, attrs), Runnable, PaintView, SinusoidBuilderView{
 
     private val appContext = context
     private val attributeSet = attrs

@@ -7,6 +7,7 @@ import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Shader
 import android.util.AttributeSet
+import android.util.Log
 import com.view.custom.dmitriy.caramelbar.R
 import com.view.custom.dmitriy.caramelbar.view.PaintView
 
@@ -24,7 +25,7 @@ class PaintPresenter(context: Context, attributeSet: AttributeSet?) : PaintView 
         const val canvasObjectsSize = 8f
         const val shadowLayerRadius = 12f
         const val shadowLayerDx = 0f
-        const val shadowLayerdy = 20f
+        const val shadowLayerDy = 20f
         const val shadowLayerColor = Color.DKGRAY
 
         var barShader = LinearGradient(0f, 0f, 100f, 20f, Color.CYAN, Color.GREEN, Shader.TileMode.MIRROR)
@@ -42,7 +43,7 @@ class PaintPresenter(context: Context, attributeSet: AttributeSet?) : PaintView 
 
     /**
      * Если в xml добавить 'app:acid="true"',
-     * о получится интересный эффект :)
+     * то получится интересный эффект :)
      */
     private fun attributeAcid() {
         typedArray = appContext.theme.obtainStyledAttributes(
@@ -51,10 +52,11 @@ class PaintPresenter(context: Context, attributeSet: AttributeSet?) : PaintView 
                 0, 0
         )
         try {
-            if (typedArray.getBoolean(R.styleable.SinusoidBar_acid, true)) {
-                paintCaramelBar.setShadowLayer( shadowLayerRadius, shadowLayerDx, shadowLayerdy, Color.DKGRAY )
+            if (typedArray.getBoolean(R.styleable.SinusoidBar_acid, false)) {
+                paintCaramelBar.setShadowLayer( shadowLayerRadius, shadowLayerDx, shadowLayerDy, shadowLayerColor )
             }
-        } finally {
+        }
+        finally {
             typedArray.recycle()
         }
     }
