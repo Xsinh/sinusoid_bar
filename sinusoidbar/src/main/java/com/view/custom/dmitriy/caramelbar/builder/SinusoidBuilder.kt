@@ -1,24 +1,17 @@
-package com.view.custom.dmitriy.caramelbar.presenter
+package com.view.custom.dmitriy.caramelbar.builder
 
 import android.graphics.Path
-import com.view.custom.dmitriy.caramelbar.view.SinusoidBuilderView
 import kotlin.math.cos
 import kotlin.math.sin
 
 /**
  * Created by Dmitriy on 24.01.2018.
  */
-class SinusoidBuilderPresenter : SinusoidBuilderView {
-    override fun sinusoidBuilder(): Path = sinusoidStartBuild( emptyHalfX, emptyHalfY, emptyRunnableCoordinateY, emptyObjectSize)
+class SinusoidBuilder {
 
     companion object {
         const val density = 6
         var sinusoidPath = Path()
-
-        const val emptyHalfX: Int = 0
-        const val emptyHalfY: Int = 0
-        const val emptyRunnableCoordinateY: Float = 0f
-        const val emptyObjectSize: Float = 0f
 
         const val amplitudeCoefficient = 3
     }
