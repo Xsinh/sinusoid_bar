@@ -50,5 +50,6 @@ class PaintBuilder(context: Context, attributeSet: AttributeSet?) {
 
             }
         typedArray.recycle()
+
     }
 }
