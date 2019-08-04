@@ -1,4 +1,4 @@
-package com.view.custom.dmitriy.caramelbar.presenter
+package com.view.custom.dmitriy.caramelbar.builder
 
 import android.content.Context
 import android.content.res.TypedArray
@@ -8,12 +8,11 @@ import android.graphics.Paint
 import android.graphics.Shader
 import android.util.AttributeSet
 import com.view.custom.dmitriy.caramelbar.R
-import com.view.custom.dmitriy.caramelbar.view.PaintView
 
 /**
  * Created by Dmitriy on 24.01.2018.
  */
-class PaintPresenter(context: Context, attributeSet: AttributeSet?) : PaintView {
+class PaintBuilder(context: Context, attributeSet: AttributeSet?) {
     private val appContext = context
     private val attrs = attributeSet
 
@@ -24,38 +23,32 @@ class PaintPresenter(context: Context, attributeSet: AttributeSet?) : PaintView 
         const val canvasObjectsSize = 8f
         const val shadowLayerRadius = 12f
         const val shadowLayerDx = 0f
-        const val shadowLayerdy = 20f
+        const val shadowLayerDy = 20f
         const val shadowLayerColor = Color.DKGRAY
 
         var barShader = LinearGradient(0f, 0f, 100f, 20f, Color.CYAN, Color.GREEN, Shader.TileMode.MIRROR)
     }
 
-    override fun paintInitialize(): Paint {
-        paintCaramelBar = Paint(Paint.ANTI_ALIAS_FLAG)
-        paintCaramelBar.strokeWidth = canvasObjectsSize
-        paintCaramelBar.shader = barShader
+     fun paintInitialize(): Paint {
+         paintCaramelBar = Paint(Paint.ANTI_ALIAS_FLAG)
+         paintCaramelBar.strokeWidth = canvasObjectsSize
+         paintCaramelBar.shader = barShader
 
-        attributeAcid()
-
-        return paintCaramelBar
+         attributeAcid()
+         return paintCaramelBar
     }
 
-    /**
-     * Если в xml добавить 'app:acid="true"',
-     * о получится интересный эффект :)
-     */
-    private fun attributeAcid() {
+     private fun attributeAcid() {
         typedArray = appContext.theme.obtainStyledAttributes(
-                attrs,
+                this.attrs,
                 R.styleable.SinusoidBar,
                 0, 0
         )
-        try {
-            if (typedArray.getBoolean(R.styleable.SinusoidBar_acid, true)) {
-                paintCaramelBar.setShadowLayer( shadowLayerRadius, shadowLayerDx, shadowLayerdy, Color.DKGRAY )
+        val style = typedArray.getBoolean(R.styleable.SinusoidBar_acid, true)
+            if (style) {
+                paintCaramelBar.setShadowLayer( shadowLayerRadius, shadowLayerDx, shadowLayerDy, shadowLayerColor )
+
             }
-        } finally {
-            typedArray.recycle()
-        }
+        typedArray.recycle()
     }
 }

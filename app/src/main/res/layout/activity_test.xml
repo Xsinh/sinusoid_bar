@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,10 +8,15 @@
     android:background="#505050"
     tools:context="com.view.custom.dmitriy.customprogressbar.TestActivity">
 
-    <com.view.custom.dmitriy.caramelbar.model.SinusoidBar
+    <com.view.custom.dmitriy.caramelbar.view.SinusoidBar
         android:id="@+id/caramelBar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="90dp"
+        android:layout_marginTop="90dp"
         app:acid="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
