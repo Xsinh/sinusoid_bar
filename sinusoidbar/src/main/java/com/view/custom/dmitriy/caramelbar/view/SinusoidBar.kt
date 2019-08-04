@@ -12,8 +12,7 @@ import com.view.custom.dmitriy.caramelbar.builder.SinusoidBuilder
 /**
  * Created by Dmitriy on 22.01.2018.
  */
-class SinusoidBar(context: Context, attrs: AttributeSet) : View(context, attrs), Runnable {
-
+class SinusoidBar : View, Runnable {
     companion object {
         var sinusoidCoordinateY = 0f
 
@@ -21,7 +20,6 @@ class SinusoidBar(context: Context, attrs: AttributeSet) : View(context, attrs),
         const val speed = .08f
         const val delay = 20L
 
-        @SuppressLint("StaticFieldLeak")
         lateinit var paintBuilder: PaintBuilder
 
         val sinusoidBuilderPresenter = SinusoidBuilder()
@@ -29,6 +27,11 @@ class SinusoidBar(context: Context, attrs: AttributeSet) : View(context, attrs),
 
     init {
         post(this)
+    }
+
+    constructor(context: Context) : super(context)
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         paintBuilder = PaintBuilder(context, attrs)
     }
 

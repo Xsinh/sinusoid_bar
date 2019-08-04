@@ -30,16 +30,17 @@ class PaintBuilder(context: Context, attributeSet: AttributeSet?) {
     }
 
      fun paintInitialize(): Paint {
-        paintCaramelBar = Paint(Paint.ANTI_ALIAS_FLAG)
-        paintCaramelBar.strokeWidth = canvasObjectsSize
-        paintCaramelBar.shader = barShader
-        attributeAcid()
-        return paintCaramelBar
+         paintCaramelBar = Paint(Paint.ANTI_ALIAS_FLAG)
+         paintCaramelBar.strokeWidth = canvasObjectsSize
+         paintCaramelBar.shader = barShader
+
+         attributeAcid()
+         return paintCaramelBar
     }
 
-    private fun attributeAcid() {
+     private fun attributeAcid() {
         typedArray = appContext.theme.obtainStyledAttributes(
-                attrs,
+                this.attrs,
                 R.styleable.SinusoidBar,
                 0, 0
         )
