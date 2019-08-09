@@ -10,7 +10,12 @@ import com.view.custom.dmitriy.caramelbar.builder.SinusoidBuilder
 
 
 /**
- * Created by Dmitriy on 22.01.2018.
+    TODO:
+        -- Rendered math functions and injected PaintBuilder
+
+    Changelog:
+        -- Version 0.1.1 'View'
+            -- Render view with runnable
  */
 class SinusoidBar : View, Runnable {
     companion object {

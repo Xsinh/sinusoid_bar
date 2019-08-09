@@ -10,7 +10,18 @@ import android.util.AttributeSet
 import com.view.custom.dmitriy.caramelbar.R
 
 /**
- * Created by Dmitriy on 24.01.2018.
+     TODO:
+        -- Builder for [Paint]
+
+    Changelog:
+        -- Version 0.1.3 'Shader layer'
+            -- Added shader in gradient
+
+        -- Version 0.1.2 'Attrs'
+            -- injected method for attrs
+
+        -- Version 0.1.1 'Pain'
+            -- Simple drawing
  */
 class PaintBuilder(context: Context, attributeSet: AttributeSet?) {
     private val appContext = context

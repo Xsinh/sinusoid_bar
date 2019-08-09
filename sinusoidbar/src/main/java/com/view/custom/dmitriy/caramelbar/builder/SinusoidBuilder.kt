@@ -5,7 +5,15 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 /**
- * Created by Dmitriy on 24.01.2018.
+    TODO:
+        -- Created math functions
+
+    Changelog:
+        -- Version 0.1.2 'Decomposition'
+            -- decomposition of function
+
+        -- Version 0.1.1 'Specular decay'
+            -- written funcion of damped oscillation
  */
 class SinusoidBuilder {
 
